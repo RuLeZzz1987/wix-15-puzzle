@@ -1,5 +1,8 @@
 ### Test task for WiX
 15 puzzle game implementation with HTML interface.
+
+Was used Chrome latest for play
+
 Available actions:
 - shuffle board
 - move boxes until complete the game
