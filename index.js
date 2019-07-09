@@ -112,10 +112,10 @@ class HTMLView {
         const {idx, isMoved, isCompleted} = move(button.getAttribute('data-item'));
         if (!isMoved) return;
 
-        this.moveBox(button, idx);
+        this._moveBox(button, idx);
 
         if (isCompleted) {
-          this.renderComplete();
+          this.showOverlay();
         }
       }
     }
@@ -131,30 +131,27 @@ class HTMLView {
     const buttons = document.querySelectorAll('.box');
     for (const button of buttons) {
       const num = button.getAttribute('data-item');
-      this.moveBox(button, currentState.indexOf(num))
+      this._moveBox(button, currentState.indexOf(num))
     }
   }
 
-  moveBox(box, position) {
+  _moveBox(box, position) {
     box.className = String.prototype
       .split
       .call(box.className, ' ')
       .filter(name => name.startsWith('box'))
       .join(' ');
-    box.classList.add(`item-${this.encodeIdx(position)}`);
+    box.classList.add(`item-${this._encodeIdx(position)}`);
   }
 
-  encodeIdx(idx) {
+  _encodeIdx(idx) {
     return idx === 15 ? '0' : (idx + 1).toString(16).toLocaleUpperCase();
-  }
-
-  renderComplete() {
-    this.showOverlay();
   }
 
   showOverlay() {
     const overlay = document.querySelector('.overlay');
     overlay.classList.remove('hidden');
+    const source = document.querySelector('.source');
     source.classList.remove('hidden');
   }
 
