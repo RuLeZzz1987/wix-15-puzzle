@@ -1,0 +1,182 @@
+
+body {
+    overflow: hidden;
+}
+
+.root {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1fc8db;
+    background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    padding-top: 10vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.game-board {
+    border: solid black;
+    border-radius: 8px;
+    width: 325px;
+    height: 325px;
+    position: relative;
+    padding: 0;
+}
+
+.box {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    transition: left 300ms, top 300ms ease;
+    cursor: pointer;
+    background-image: url(./wix.jpg);
+    background-repeat: no-repeat;
+}
+
+.controls {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: block;
+    position: absolute;
+    border-radius: 8px;
+}
+
+.btn {
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+.item-1,
+.item-2,
+.item-3,
+.item-4 {
+    top: 1px;
+}
+
+.item-5,
+.item-6,
+.item-7,
+.item-8 {
+    top: 82px;
+}
+
+.item-9,
+.item-A,
+.item-B,
+.item-C {
+    top: 163px;
+}
+
+.item-D,
+.item-E,
+.item-F,
+.item-0 {
+    top: 244px;
+}
+
+.item-1,
+.item-5,
+.item-9,
+.item-D {
+    left: 1px;
+}
+
+.item-2,
+.item-6,
+.item-A,
+.item-E {
+    left: 82px;
+}
+
+.item-3,
+.item-7,
+.item-B,
+.item-F {
+    left: 163px;
+}
+
+.item-4,
+.item-8,
+.item-C,
+.item-0 {
+    left: 244px;
+}
+
+.box-bg-1 {
+     background-position: 0 0;
+ }
+
+.box-bg-2 {
+    background-position: -80px 0;
+}
+
+.box-bg-3 {
+    background-position: -160px 0;
+}
+
+.box-bg-4 {
+    background-position: -240px 0;
+}
+
+.box-bg-5 {
+    background-position: 0 -80px;
+}
+
+.box-bg-6 {
+    background-position: -80px -80px;
+}
+
+.box-bg-7 {
+    background-position: -160px -80px;
+}
+
+.box-bg-8 {
+    background-position: -240px -80px;
+}
+
+.box-bg-9 {
+    background-position: 0 -160px;
+}
+
+.box-bg-10 {
+    background-position: -80px -160px;
+}
+
+.box-bg-11 {
+    background-position: -160px -160px;
+}
+
+.box-bg-12 {
+    background-position: -240px -160px;
+}
+
+.box-bg-13 {
+    background-position: 0 -240px;
+}
+
+.box-bg-14 {
+    background-position: -80px -240px;
+}
+
+.box-bg-15 {
+    background-position: -160px -240px;
+}
+
+.source {
+    text-align: center;
+    font-size: 18px;
+}
