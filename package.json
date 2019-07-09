@@ -1,0 +1,27 @@
+{
+  "name": "15-puzzle",
+  "version": "1.0.0",
+  "description": "Wix test task",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RuLeZzz1987/wix-15-puzzle.git"
+  },
+  "keywords": [
+    "wix",
+    "15",
+    "puzzle"
+  ],
+  "author": "Alex Duka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RuLeZzz1987/wix-15-puzzle/issues"
+  },
+  "homepage": "https://github.com/RuLeZzz1987/wix-15-puzzle#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}

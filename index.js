@@ -11,25 +11,12 @@ class Engine {
     this.view.setup({move: this.move, shuffle: this.shuffle});
   }
 
-
   shuffle() {
     for (let i = 0; i < 200; i++) {
-      const randomBox = this.pickRandomBox();
+      const randomBox = this._pickRandomBox();
       this.move(randomBox);
     }
     this.view.render(this.boardState);
-  }
-
-  isCompleted() {
-    return this.boardState.join('') === '123456789ABCDEF0';
-  }
-
-  get nextState() {
-    return {
-      idx: this.blankIdx,
-      isMoved: true,
-      isCompleted: this.isCompleted()
-    }
   }
 
   move(boxId) {
@@ -40,7 +27,7 @@ class Engine {
       this.boardState[(currentX - 1) * 4 + currentY] = '0';
       this.boardState[this.blankIdx] = boxId;
 
-      const nextState = this.nextState;
+      const nextState = this._nextState;
 
       this.blankIdx = (currentX - 1) * 4 + currentY;
 
@@ -51,7 +38,7 @@ class Engine {
       this.boardState[(currentX + 1) * 4 + currentY] = '0';
       this.boardState[this.blankIdx] = boxId;
 
-      const nextState = this.nextState;
+      const nextState = this._nextState;
 
       this.blankIdx = (currentX + 1) * 4 + currentY;
 
@@ -62,7 +49,7 @@ class Engine {
       this.boardState[currentX * 4 + currentY - 1] = '0';
       this.boardState[this.blankIdx] = boxId;
 
-      const nextState = this.nextState;
+      const nextState = this._nextState;
 
       this.blankIdx = currentX * 4 + currentY - 1;
 
@@ -72,7 +59,7 @@ class Engine {
       this.boardState[currentX * 4 + currentY + 1] = '0';
       this.boardState[this.blankIdx] = boxId;
 
-      const nextState = this.nextState;
+      const nextState = this._nextState;
 
       this.blankIdx = currentX * 4 + currentY + 1;
 
@@ -84,7 +71,19 @@ class Engine {
     }
   }
 
-  pickRandomBox() {
+  get _nextState() {
+    return {
+      idx: this.blankIdx,
+      isMoved: true,
+      isCompleted: this._isCompleted()
+    }
+  }
+
+  _isCompleted() {
+    return this.boardState.join('') === '123456789ABCDEF0';
+  }
+
+  _pickRandomBox() {
     const blankX = this.blankIdx / 4 | 0;
     const blankY = this.blankIdx % 4;
     const canBeMoved = [];
@@ -104,7 +103,7 @@ class Engine {
   }
 }
 
-class View {
+class HTMLView {
 
   setup({move, shuffle}) {
     const buttons = document.querySelectorAll('.box');
@@ -168,4 +167,9 @@ class View {
 
 }
 
-new Engine(new View());
+if (module && module.exports) {
+  module.exports = {
+    Engine,
+    View: HTMLView
+  }
+}
