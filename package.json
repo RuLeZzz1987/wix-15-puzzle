@@ -2,7 +2,7 @@
   "name": "15-puzzle",
   "version": "1.0.0",
   "description": "Wix test task",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/RuLeZzz1987/wix-15-puzzle#readme",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^24.8.0",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6"
   }
 }
